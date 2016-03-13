@@ -20,5 +20,9 @@
 	<bean id="example2" class="kh.springproperties.propertyplaceholderexample.ExampleBean2">
 		<property name="property1" value="${example1}"/>
 	</bean>
+
+	<!-- example using util:properties and SpEL -->
+	<util:properties id="example3" location="classpath:/example3.properties"/>
+
 	
 </beans>
