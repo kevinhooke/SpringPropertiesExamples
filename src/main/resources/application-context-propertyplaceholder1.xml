@@ -7,22 +7,19 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
+	<context:component-scan base-package="kh.springproperties.example1"/>
 
-	<context:component-scan base-package="kh.springproperties"/>
-	
-	<context:property-placeholder location="classpath:/example1.properties"/>
-
-	<!-- ExampleBean1 is an @Component picked up in the component-scan and uses
-	@Value to inject in values from PlaceholderConfigurer -->
-	
-	<!-- ExampleBean2 is explicitly configured, with values injected also from 
-	PropertyPlaceholderConfigurer -->
-	<bean id="example2" class="kh.springproperties.propertyplaceholderexample.ExampleBean2">
-		<property name="property1" value="${example1}"/>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:example1.properties</value>
+		</property>
 	</bean>
-
-	<!-- example using util:properties and SpEL -->
-	<util:properties id="example3" location="classpath:/example3.properties"/>
-
+ 
+	<!-- ExampleBean1 is explicitly configured in XML, with values injected from 
+		PropertyPlaceholderConfigurer -->
+	<bean id="example1" class="kh.springproperties.example1.beans.ExampleBean1">
+		<property name="property1" value="${example1}"/>
+		<property name="property2" value="${example2}"/>
+	</bean>
 	
 </beans>

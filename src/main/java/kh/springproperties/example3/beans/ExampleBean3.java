@@ -1,4 +1,4 @@
-package kh.springproperties.propertyplaceholderexample;
+package kh.springproperties.example3.beans;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ public class ExampleBean3 {
 	/**
 	 * property value injected from util:properties referenced using SpEL
 	 */
-	@Value("#{example3['property3']}")
+	@Value("${property3}")
 	private String property3;
 	
 	public String getProperty3() {
