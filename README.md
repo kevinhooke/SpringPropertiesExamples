@@ -1,12 +1,12 @@
 # SpringPropertiesExamples
 Simple examples using different approaches to supporting properties in Spring Framework based applications.
 
-##SpringPropertyPlaceholderExample
-Uses a PropertyPlaceholderConfigurer to inject properties into:
+##SpringPropertyPlaceholderExampleApp1
+XML config with PropertyPlaceholderConfigurer to inject properties a bean
 
-1. bean located with component-scan using @Value and SpEL
-2. xml declaration for bean using property placeholders in xml config
+## SpringPropertyPlaceholderExampleApp2
+XML config but using component-scan and context:property-placeholder
 
-Uses a util:properies bean, injects property into
-
-3. bean using @Value and SpEL to reference the properties bean
+##SpringBooktPropertiesExmapleApp1
+Java based config with a Spring Boot app, using @PropertySource and @Value to inject properties from property files
+as well as system properties and env variables
